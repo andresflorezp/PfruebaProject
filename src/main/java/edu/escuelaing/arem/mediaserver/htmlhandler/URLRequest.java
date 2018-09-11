@@ -14,7 +14,7 @@ import java.net.Socket;
  */
 public class URLRequest {
     //declaracion atributos
-    public static String adress = null;
+    public static String adress = "";
     public static BufferedReader in;
     private static HTMLOutput htmlOut = new HTMLOutput();
     
