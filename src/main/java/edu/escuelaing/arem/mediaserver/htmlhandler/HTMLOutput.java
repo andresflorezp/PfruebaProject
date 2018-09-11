@@ -23,7 +23,7 @@ public class HTMLOutput {
         try {            
             FileReader file = new FileReader("src/main/java/edu/escuelaing/arem/mediaserver/webpages"+adress);
             BufferedReader reader = new BufferedReader(file);
-            String inputLine = null;
+            String inputLine = "";
             html = "";
             while ((inputLine = reader.readLine()) != null) {
                 html += inputLine + "\n";
