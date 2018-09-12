@@ -16,8 +16,8 @@ import java.net.*;
 public class HttpServer {
     //declaracion atributos privados
     private static ServerSocket serverSocket;
-    private static Socket clientSocket;
-    private static URLRequest output = new URLRequest();
+    private static Socket receiver;
+    private static URLRequest request = new URLRequest();
     private static PostPage post = new PostPage();
     
     /**
@@ -30,14 +30,14 @@ public class HttpServer {
         while (true == true){
             //creacion sockets server y client
             serverSocket = ServerSckt.runServer();
-            clientSocket = ClientSckt.runClient(serverSocket);
+            receiver = ClientSckt.receiveRequest(serverSocket);
             //inicializa el servidor para recibir la entrada de la direccion de una pagina
-            output.setRequest(clientSocket);       
+            request.setRequest(receiver);       
             //hace publica la pagina solicitada en el paso anterior
-            post.postType(output.getAdress(),clientSocket);
-            output.closeInput();
+            post.postType(request.getAdress(),receiver);
+            request.closeInput();
             //cierrra sockets
-            clientSocket.close();
+            receiver.close();
             serverSocket.close();
         }        
     }      

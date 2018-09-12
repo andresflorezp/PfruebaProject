@@ -18,16 +18,16 @@ public class ClientSckt {
      * @param serverSocket se debe conocer desde que servidor se esta haciendo la solicitud
      * @return clienSocket socket cliente desde el cual se van a enviar solicitudes al servidor
      */
-    public static Socket runClient(ServerSocket serverSocket) {
+    public static Socket receiveRequest(ServerSocket serverSocket) {
 
-        Socket clientSocket = null;        
+        Socket request = null;        
         try {
             System.out.println("Ready to receive...");
-            clientSocket = serverSocket.accept();
+            request = serverSocket.accept();
         } catch (IOException e) {
             System.err.println("Accept failed.");
             System.exit(1);
         }
-        return clientSocket;
+        return request;
     }    
 }
